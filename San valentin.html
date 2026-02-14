@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz San Valentín</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: #fff7c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Georgia', serif;
+}
+
+/* ESCENA */
+.scene {
+    perspective: 1400px;
+}
+
+/* TARJETA */
+.card {
+    width: 560px;
+    height: 380px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.2s ease;
+    cursor: pointer;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+.face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    background: #fff7c7;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: #fff;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+/* ===== FLORES ===== */
+.flor {
+    position: absolute;
+    opacity: 0;
+    animation: aparecer 3s ease forwards;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+/* GIRASOL FONDO */
+.girasol {
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    transform: translate(-50%, -50%);
+    opacity: 0.25;
+    z-index: 1;
+    animation-delay: 0.5s;
+}
+
+/* PETALOS FONDO */
+.petalos {
+    width: 160px;
+    opacity: 0.18;
+    z-index: 1;
+}
+
+.p1 { top: 40px; left: 80px; animation-delay: 1s; }
+.p2 { top: 220px; right: 90px; animation-delay: 1.2s; }
+
+/* FLORES DECORATIVAS (DOBLES) */
+.rosa1a { top: 30px; left: 30px; width: 90px; animation-delay: 1.4s; }
+.rosa1b { bottom: 40px; right: 40px; width: 90px; animation-delay: 1.6s; }
+
+.rosa2a { top: 50px; right: 40px; width: 85px; animation-delay: 1.8s; }
+.rosa2b { bottom: 50px; left: 50px; width: 85px; animation-delay: 2s; }
+
+.flor1a { top: 140px; left: 10px; width: 70px; animation-delay: 2.2s; }
+.flor1b { top: 140px; right: 10px; width: 70px; animation-delay: 2.4s; }
+
+.flor2a { bottom: 120px; left: 120px; width: 65px; animation-delay: 2.6s; }
+.flor2b { bottom: 120px; right: 120px; width: 65px; animation-delay: 2.8s; }
+
+/* TEXTO CENTRAL */
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 42px;
+    color: #e10600;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeIn 2s forwards 3s;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* TEXTO CARTA */
+.back h2 {
+    color: #e63900;
+}
+
+.back p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+<div class="card" onclick="this.classList.toggle('flip')">
+
+<!-- FRENTE -->
+<div class="face front">
+
+    <!-- GIRASOL FONDO -->
+    <img src="flores/girasol.png" class="flor girasol">
+
+    <!-- PETALOS -->
+    <img src="flores/petalos.png" class="flor petalos p1">
+    <img src="flores/petalos.png" class="flor petalos p2">
+
+    <!-- FLORES DECORATIVAS -->
+    <img src="flores/rosa1.png" class="flor rosa1a">
+    <img src="flores/rosa1.png" class="flor rosa1b">
+
+    <img src="flores/rosa2.png" class="flor rosa2a">
+    <img src="flores/rosa2.png" class="flor rosa2b">
+
+    <img src="flores/flor1.png" class="flor flor1a">
+    <img src="flores/flor1.png" class="flor flor1b">
+
+    <img src="flores/flor2.png" class="flor flor2a">
+    <img src="flores/flor2.png" class="flor flor2b">
+
+    <!-- TEXTO -->
+    <div class="title">Feliz San Valentín</div>
+
+</div>
+
+<!-- REVERSO -->
+<div class="face back">
+<h2>Para ti 🌻</h2>
+
+<p>
+Es un pequeño detalle para lo mucho que te mereces,
+gracias por iluminar mis días con tu belleza y deseo
+cada día poder seguir teniéndote junto a mi
+recuerda lo mucho que te quiero y la gran mujer que eres.
+</p>
+
+<p>
+Eres para mi la mas hermosa flor.
+</p>
+
+<p><strong>❤️Con todo mi amor❤️</strong></p>
+
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
